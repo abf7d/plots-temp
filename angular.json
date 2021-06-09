@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "explorer": {
+      "projectType": "library",
+      "root": "projects/explorer",
+      "sourceRoot": "projects/explorer/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/explorer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/explorer/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/explorer/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/explorer/src/test.ts",
+            "tsConfig": "projects/explorer/tsconfig.spec.json",
+            "karmaConfig": "projects/explorer/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "plots-app"
